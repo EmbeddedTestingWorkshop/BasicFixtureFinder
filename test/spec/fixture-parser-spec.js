@@ -43,16 +43,5 @@ describe("A FixtureParser", function() {
         });
       });
     });
-
-    describe("given locale is set to German", function() {
-      beforeEach(function() {
-        testFixtures = testFixtureData;
-        FixtureFinder.currentLanguage = 'de';
-      });
-
-      it("will update the no of fixtures with german text", function() {
-        expect( $('.fixtures .noOf').text()).toEqual("5 Spiele");
-      });
-    });
   });
 });
