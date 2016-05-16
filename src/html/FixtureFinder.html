@@ -22,7 +22,6 @@
             </div>
 
             <section class="fixtures">
-
                 <div class="dateSelectNav">
                     <button type="button" class="btn btn-primary btn dateSelect" data-offset="-7">Previous Week</button>
                     <button type="button" class="btn btn-info btn dateSelect" data-offset="-1">Previous Day</button>
@@ -32,10 +31,9 @@
                 </div>
 
                 <div class="info">
+                    <span class="date"></span>
                     <span class="numberOfFixtures"></span>
                 </div>
-
-
 
                 <div class="table-responsive">
                     <table class="table table-condensed table-striped table-hover table-bordered sortable">
@@ -75,6 +73,7 @@
     <script src="../js/initializer.js"></script>
     <script src="../js/fixture-parser.js"></script>
     <script src="../js/fixture-retriever.js"></script>
+    <script src="../js/fixture-date.js"></script>
 
     <script>
         $(document).ready(FixtureFinder.initializer.init());

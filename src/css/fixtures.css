@@ -55,7 +55,11 @@
   margin: 10px auto 10px auto;
 }
 
-.fixtures .numberOfFixtures {
+.fixtures .info .date {
+  font-weight: bold;
+}
+
+.fixtures .info .numberOfFixtures {
   font-size: 0.5em;
   display:block;
 }

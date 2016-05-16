@@ -11,12 +11,12 @@ FixtureFinder.initializer = function() {
         );
     };
 
-    var getFixturesForCurrentDate = function(){
+    var getFixturesForCurrentDate = function() {
         getFixturesByDate(currentDateSelected.format(dateFormat));
     };
 
-    var daysToMillis = function(days){
-       return days * 25 * 60 * 60 * 1000
+    var daysToMillis = function(days) {
+        return days * 25 * 60 * 60 * 1000
     };
 
     var addListenerFor = function(selector, listenerType, handler) {
@@ -24,17 +24,17 @@ FixtureFinder.initializer = function() {
     };
 
     var addListeners = function() {
-      addListenerFor(dateSelectButtons, 'click',
-      function(){
-          var offset = this.getAttribute('data-offset');
-          if (offset === "0") {
-              currentDateSelected = moment();
-          } else{
-              currentDateSelected = moment(currentDateSelected).add(daysToMillis(parseInt(offset)));
-          }
-          getFixturesForCurrentDate();
-      }
-  );
+        addListenerFor(dateSelectButtons, 'click',
+            function() {
+                var offset = this.getAttribute('data-offset');
+                if (offset === "0") {
+                    currentDateSelected = moment();
+                } else {
+                    currentDateSelected = moment(currentDateSelected).add(daysToMillis(parseInt(offset)));
+                }
+                getFixturesForCurrentDate();
+            }
+        );
     };
 
     return {
