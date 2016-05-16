@@ -2,18 +2,14 @@ describe("A FixtureParser", function() {
   var testFixtures;
 
   describe("#parseFixtures", function() {
-    describe("given locale is set to English", function() { 
+    describe("given locale is set to English", function() {
       beforeEach(function() {
         testFixtures = testFixtureData;
       });
 
       describe("and the full test data list of fixtures", function() {
         beforeEach(function() {
-          FixtureParser.parseFixtures(testFixtures);    
-        });
-
-        it("will set the number of fixtures to 5", function() {
-          expect($('.fixtures .noOf').text()).toEqual("5 fixtures");
+          FixtureParser.parseFixtures(testFixtures);
         });
 
         it("will add 5 fixtures to the table", function() {
@@ -23,11 +19,7 @@ describe("A FixtureParser", function() {
 
       describe("and an array with only one element", function() {
         beforeEach(function() {
-          FixtureParser.parseFixtures(testFixtures.slice(0, 1));    
-        });
-
-        it("will set the correct number of fixtures to 1", function() {
-          expect($('.fixtures .noOf').text()).toEqual("1 fixtures");
+          FixtureParser.parseFixtures(testFixtures.slice(0, 1));
         });
 
         it("will add 1 fixture to the table", function() {
