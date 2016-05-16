@@ -25,7 +25,7 @@ var FixtureParser = function(){
     return {
         parseFixtures: function(fixtures){
             $('.fixtures .fixture').remove();
-            $('.fixtures .noOf').text(fixtures.length +' fixtures');
+            $('.fixtures .numberOfFixtures').text(fixtures.length +' fixtures');
             $.each(fixtures, function(index, fixture ) {
                $('.fixtures .table').append(getFixtureAsHTMLElement(fixture, index));
             });
