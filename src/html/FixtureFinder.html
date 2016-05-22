@@ -23,7 +23,16 @@
 
             <nav class="navbar navbar-default">
                 <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
+                    <div class="form-group filter">
+                        <button class="btn btn-default dropdown-toggle"
+                                type="button"
+                                id="dropdownMenu1"
+                                data-toggle="dropdown"
+                                aria-expanded="false">
+                            All Countries & Competitions
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="competitions dropdown-menu" aria-labelledby="dropdownMenu1"></ul>
                         <input type="text" class="form-control team-filter" placeholder="Filter Team">
                     </div>
                 </form>

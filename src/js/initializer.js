@@ -5,6 +5,7 @@ FixtureFinder.initializer = function() {
     var currentDateSelected = moment();
     var dateSelectButtons = '.dateSelect';
     var teamFilterInput = $('.navbar .team-filter');
+    var countryFilterSelector = '.competitions input[name=competition]'
 
     var getFixturesByDate = function(date) {
         FixtureFinder.FixtureRetriever.getFixturesByDate(
@@ -17,8 +18,12 @@ FixtureFinder.initializer = function() {
     };
 
     var filterCurrentFixtureList = function(){
-        var filterFixtures = FixtureFinder.filterTeams(teamFilterInput[0].value)
-        FixtureFinder.FixtureRetriever.getRetrievedFixtures(filterFixtures);
+        var fixtureFilter = function(fixtures) {
+            var filteredByCountry = FixtureFinder.filterCountries($(countryFilterSelector + ':checked')[0].id)(fixtures)
+            var filteredByTeam = FixtureFinder.filterTeams(teamFilterInput[0].value)(filteredByCountry)
+            return filteredByTeam
+        }
+        return FixtureFinder.FixtureRetriever.getRetrievedFixtures(fixtureFilter);
     };
 
     var daysToMillis = function(days) {
@@ -47,6 +52,10 @@ FixtureFinder.initializer = function() {
             }
         );
     };
+
+    FixtureFinder.addCompetitionListeners = function(){
+        addGetFixturesListener(countryFilterSelector, 'click', filterCurrentFixtureList);
+    }
 
     return {
         init: function() {
