@@ -8,7 +8,9 @@ var FixtureRetriever = function() {
     var fixtures = [];
     FixtureFinder.FixtureRetriever = {
         getRetrievedFixtures: function(filter) {
-            FixtureParser.parseFixtures(filter(fixtures));
+            var filteredFixtures = filter(fixtures);
+            FixtureParser.parseFixtures(filteredFixtures);
+            FixtureParser.populateDropdown(filteredFixtures);
         },
         getFixturesByDate: function(date, filter) {
             var url = 'http://rest-accachallenge.rhcloud.com/fixtures/' + date + '?callback=?';
@@ -27,6 +29,7 @@ var FixtureRetriever = function() {
                 success: function(json) {
                     fixtures = json.fixtures;
                     FixtureParser.parseFixtures(fixtures);
+                    FixtureParser.populateDropdown(fixtures);
                 },
                 error: function(json) {
                     console.log(json.messages);

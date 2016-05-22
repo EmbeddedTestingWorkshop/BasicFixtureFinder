@@ -21,6 +21,23 @@
                 <h1>Fixture Finder</h1>
             </div>
 
+            <nav class="navbar navbar-default">
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group filter">
+                        <button class="btn btn-default dropdown-toggle"
+                                type="button"
+                                id="dropdownMenu1"
+                                data-toggle="dropdown"
+                                aria-expanded="false">
+                            All Countries & Competitions
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="competitions dropdown-menu" aria-labelledby="dropdownMenu1"></ul>
+                        <input type="text" class="form-control team-filter" placeholder="Filter Team">
+                    </div>
+                </form>
+            </nav>
+
             <section class="fixtures">
                 <div class="dateSelectNav">
                     <button type="button" class="btn btn-primary btn dateSelect" data-offset="-7">Previous Week</button>
@@ -74,6 +91,7 @@
     <script src="../js/fixture-parser.js"></script>
     <script src="../js/fixture-retriever.js"></script>
     <script src="../js/fixture-date.js"></script>
+    <script src="../js/fixture-filter.js"></script>
 
     <script>
         $(document).ready(FixtureFinder.initializer.init());

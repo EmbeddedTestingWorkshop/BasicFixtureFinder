@@ -26,9 +26,40 @@ var FixtureParser = function(){
         parseFixtures: function(fixtures){
             $('.fixtures .fixture').remove();
             $('.fixtures .numberOfFixtures').text(fixtures.length +' fixtures');
+        },
+        populateDropdown: function(fixtures) {
+            var countries = {}
             $.each(fixtures, function(index, fixture ) {
-               $('.fixtures .table').append(getFixtureAsHTMLElement(fixture, index));
+                $('.fixtures .table').append(getFixtureAsHTMLElement(fixture, index));
+                if(countries[fixture.country]) {
+                    countries[fixture.country] = countries[fixture.country] + 1
+                } 
+                else {
+                    countries[fixture.country] = 1
+                }
+                
             });
+            $('.competitions')
+                        .append('<li>'+
+                                  '<input type="radio" id="all"name="competition" value="0">' +
+                                  '<label for="all"><span class="flag flag-all"></span>' +
+                                    '<strong><span class="en-txt">All Countries & Comperirions</span></strong> ' +
+                                    '<small><span class="en-txt">(' + (fixtures.length - 1) +')</span></small>' +
+                                  '</label>' +
+                                '</li>');
+            Object.keys(countries).forEach(
+                function(country, index) { 
+                    $('.competitions')
+                        .append('<li>'+
+                                  '<input type="radio" id="' + country + '"name="competition" value="' + (index + 1) + '">' +
+                                  '<label for="' + country + '"><span class="flag flag-' + country + '"></span>' +
+                                    '<strong><span class="en-txt">' + country +'</span></strong> ' +
+                                    '<small><span class="en-txt">(' + countries[country] +')</span></small>' +
+                                  '</label>' +
+                                '</li>');
+                }
+            );
+            FixtureFinder.addCompetitionListeners();
         }
     }
 }();
