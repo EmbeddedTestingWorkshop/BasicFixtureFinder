@@ -9,6 +9,17 @@ FixtureFinder.filterTeams = function(filter){
     }
 }
 
+FixtureFinder.filterCountries = function(filter){
+    return function(fixtures){
+        filter = filter || 'all'
+        var forEachFixture = function(fixture){
+            return fixture.country === filter
+        };
+        return filter === 'all' ? fixtures : fixtures.filter(forEachFixture);
+    }
+}
+
+
 
 
 
