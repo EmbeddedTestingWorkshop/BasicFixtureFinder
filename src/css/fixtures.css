@@ -21,7 +21,7 @@
 .fixtures th  {
   text-align: center;
   background-color: #E5E4E2;
-} 
+}
 
 .fixtures td {
   text-align: center;
@@ -48,14 +48,18 @@
   width: 10%;
 }
 
-.fixtures .date {
+.fixtures .info {
   text-align: center;
   font-size: 2em;
   width:30%;
   margin: 10px auto 10px auto;
 }
 
-.fixtures .noOf {
+.fixtures .info .date {
+  font-weight: bold;
+}
+
+.fixtures .info .numberOfFixtures {
   font-size: 0.5em;
   display:block;
 }
@@ -93,4 +97,3 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-
