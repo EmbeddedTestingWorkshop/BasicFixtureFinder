@@ -34,12 +34,8 @@ FixtureFinder.initializer = function() {
         $(selector)[listenerType](handler);
     };
 
-    var addGetFixturesListener = function(selector, listenerType, handler) {
-        $(selector)[listenerType](handler);
-    };
-
     var addListeners = function() {
-        addGetFixturesListener(teamFilterInput, 'keyup', filterCurrentFixtureList);
+        addListenerFor(teamFilterInput, 'keyup', filterCurrentFixtureList);
         addListenerFor(dateSelectButtons, 'click',
             function() {
                 var offset = this.getAttribute('data-offset');
@@ -54,7 +50,7 @@ FixtureFinder.initializer = function() {
     };
 
     FixtureFinder.addCompetitionListeners = function(){
-        addGetFixturesListener(countryFilterSelector, 'click', filterCurrentFixtureList);
+        addListenerFor(countryFilterSelector, 'click', filterCurrentFixtureList);
     }
 
     return {

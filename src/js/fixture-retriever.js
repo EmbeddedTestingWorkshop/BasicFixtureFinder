@@ -1,3 +1,4 @@
+// Admin password service server: PtmKbnhBzA_Yc8Wu
 var FixtureRetriever = function() {
 
     var clearOldData = function() {
@@ -13,7 +14,7 @@ var FixtureRetriever = function() {
             FixtureParser.populateDropdown(filteredFixtures);
         },
         getFixturesByDate: function(date, filter) {
-            var url = 'http://rest-accachallenge.rhcloud.com/fixtures/' + date + '?callback=?';
+            var url = 'http://fixturefinder-ntd.herokuapp.com/fixtures/' + date + '?callback=?';
             $('.spinner').fadeIn(1);
 
             FixtureFinder.setDate(date);

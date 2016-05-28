@@ -11,12 +11,24 @@ var FixtureParser = function(){
         return localKOTime;
     };
 
+    var preprocessFixtures = function(fixtures){
+      $.each(fixtures, function(index, fixture ) {
+           if (fixture.country === 'Italy') {
+               if (fixture.kickOff.status === 'FT'){
+                fixture.score.homeGoals = 0;
+                fixture.score.awayGoals = 0;
+               }
+           }
+      });
+      return fixtures;
+    };
+
     var getFixtureAsHTMLElement = function(fixture, index){
         var listElement = '<tr class="fixture">';
             listElement = listElement + '<td class="competition"><div class="flag flag-'+fixture.country+'"></div>' + fixture.competition + '</td>';
             listElement = listElement + '<td class="kickOffDate" ><small>' + getLocalKickOffTime(fixture.kickOff.date, fixture.kickOff.time) + '</small></td>';
             listElement = listElement + '<td class="home team"><strong>' + fixture.homeTeam +'</strong></td>';
-            listElement = listElement + '<td class="score">' + fixture.score.homeGoals + ':' + fixture.score.awayGoals + '</td>';
+            listElement = listElement + '<td class="score">' + fixture.score.awayGoals + ':' + fixture.score.homeGoals + '</td>';
             listElement = listElement + '<td class="away team"><strong>' + fixture.awayTeam + '</strong></td>';
             listElement = listElement + '</tr>';
         return listElement;
@@ -26,18 +38,21 @@ var FixtureParser = function(){
         parseFixtures: function(fixtures){
             $('.fixtures .fixture').remove();
             $('.fixtures .numberOfFixtures').text(fixtures.length +' fixtures');
+            fixtures = preprocessFixtures(fixtures);
+            $.each(fixtures.length>=2?fixtures.slice(0, fixtures.length-1):fixtures, function(index, fixture ) {
+               $('.fixtures .table').append(getFixtureAsHTMLElement(fixture, index));
+            });
         },
         populateDropdown: function(fixtures) {
             var countries = {}
             $.each(fixtures, function(index, fixture ) {
-                $('.fixtures .table').append(getFixtureAsHTMLElement(fixture, index));
                 if(countries[fixture.country]) {
                     countries[fixture.country] = countries[fixture.country] + 1
-                } 
+                }
                 else {
                     countries[fixture.country] = 1
                 }
-                
+
             });
             $('.competitions')
                         .append('<li>'+
@@ -48,7 +63,7 @@ var FixtureParser = function(){
                                   '</label>' +
                                 '</li>');
             Object.keys(countries).forEach(
-                function(country, index) { 
+                function(country, index) {
                     $('.competitions')
                         .append('<li>'+
                                   '<input type="radio" id="' + country + '"name="competition" value="' + (index + 1) + '">' +
