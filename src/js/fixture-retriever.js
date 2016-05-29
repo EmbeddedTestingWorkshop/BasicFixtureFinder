@@ -8,7 +8,7 @@ var FixtureRetriever = function() {
 
     var fixtures = [];
     FixtureFinder.FixtureRetriever = {
-        getRetrievedFixtures: function(filter) {
+        filterCurrentWith: function(filter) {
             FixtureParser.parseFixtures(filter(fixtures));
             //2015-04-01. TODO:Broken will fix soon. FixtureParser.populateDropdown(fixtures);
         },
@@ -28,7 +28,7 @@ var FixtureRetriever = function() {
                 dataType: 'jsonp',
                 success: function(json) {
                     fixtures = json.fixtures;
-                    FixtureParser.parseFixtures(fixtures);
+                    FixtureParser.parseFixtures(filter(fixtures));
                 },
                 error: function(json) {
                     console.log(json.messages);

@@ -9,7 +9,8 @@ FixtureFinder.initializer = function() {
 
     var getFixturesByDate = function(date) {
         FixtureFinder.FixtureRetriever.getFixturesByDate(
-            date || moment().format(dateFormat)
+            date || moment().format(dateFormat),
+            fixtureFilter
         );
     };
 
@@ -17,17 +18,18 @@ FixtureFinder.initializer = function() {
         getFixturesByDate(currentDateSelected.format(dateFormat));
     };
 
+    var fixtureFilter = function(fixtures) {
+        var filteredByCountry = FixtureFinder.filterCountries($(countryFilterSelector + ':checked')[0].id)(fixtures);
+        var filteredByTeam = FixtureFinder.filterTeams(teamFilterInput[0].value)(filteredByCountry);
+        return filteredByTeam;
+    }
+
     var filterCurrentFixtureList = function(){
-        var fixtureFilter = function(fixtures) {
-            var filteredByCountry = FixtureFinder.filterCountries($(countryFilterSelector + ':checked')[0].id)(fixtures)
-            var filteredByTeam = FixtureFinder.filterTeams(teamFilterInput[0].value)(filteredByCountry)
-            return filteredByTeam
-        }
-        return FixtureFinder.FixtureRetriever.getRetrievedFixtures(fixtureFilter);
+        return FixtureFinder.FixtureRetriever.filterCurrentWith(fixtureFilter);
     };
 
     var daysToMillis = function(days) {
-        return days * 25 * 60 * 60 * 1000
+        return days * 25 * 60 * 60 * 1000;
     };
 
     var addListenerFor = function(selector, listenerType, handler) {
