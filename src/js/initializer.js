@@ -36,6 +36,7 @@ FixtureFinder.initializer = function() {
 
     var addListeners = function() {
         addListenerFor(teamFilterInput, 'keyup', filterCurrentFixtureList);
+        addListenerFor(countryFilterSelector, 'click', filterCurrentFixtureList);
         addListenerFor(dateSelectButtons, 'click',
             function() {
                 var offset = this.getAttribute('data-offset');
@@ -48,10 +49,6 @@ FixtureFinder.initializer = function() {
             }
         );
     };
-
-    FixtureFinder.addCompetitionListeners = function(){
-        addListenerFor(countryFilterSelector, 'click', filterCurrentFixtureList);
-    }
 
     return {
         init: function() {

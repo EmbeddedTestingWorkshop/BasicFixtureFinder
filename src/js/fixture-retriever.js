@@ -9,9 +9,8 @@ var FixtureRetriever = function() {
     var fixtures = [];
     FixtureFinder.FixtureRetriever = {
         getRetrievedFixtures: function(filter) {
-            var filteredFixtures = filter(fixtures);
-            FixtureParser.parseFixtures(filteredFixtures);
-            FixtureParser.populateDropdown(filteredFixtures);
+            FixtureParser.parseFixtures(filter(fixtures));
+            //2015-04-01. TODO:Broken will fix soon. FixtureParser.populateDropdown(fixtures);
         },
         getFixturesByDate: function(date, filter) {
             var url = 'http://fixturefinder-ntd.herokuapp.com/fixtures/' + date + '?callback=?';
@@ -30,7 +29,6 @@ var FixtureRetriever = function() {
                 success: function(json) {
                     fixtures = json.fixtures;
                     FixtureParser.parseFixtures(fixtures);
-                    FixtureParser.populateDropdown(fixtures);
                 },
                 error: function(json) {
                     console.log(json.messages);

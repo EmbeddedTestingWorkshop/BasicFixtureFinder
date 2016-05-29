@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="../css/dropdowns-enhancement.min.css">
     <link rel="stylesheet" href="../css/fixtures.css">
     <link rel="stylesheet" href="../css/flags.css">
-    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js">
+</script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js">
+</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js">
+</script>
 </head>
 
 <body>
@@ -32,7 +35,32 @@
                             All Countries & Competitions
                             <span class="caret"></span>
                         </button>
-                        <ul class="competitions dropdown-menu" aria-labelledby="dropdownMenu1"></ul>
+                        <ul class="competitions dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li>
+                                <input type="radio" id="All"name="competition" value="0">
+                                <label for="All"><span class="flag flag-All"></span>
+                                    <strong><span class="en-txt">All Countries & Competitions</span></strong>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" id="England"name="competition" value="1" checked>
+                                <label for="England"><span class="flag flag-England"></span>
+                                    <strong><span class="en-txt">England</span></strong>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" id="Germany"name="competition" value="2">
+                                <label for="Germany"><span class="flag flag-Germany"></span>
+                                    <strong><span class="en-txt">Germany</span></strong>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" id="Estonia"name="competition" value="3">
+                                <label for="Estonia"><span class="flag flag-Estonia"></span>
+                                    <strong><span class="en-txt">Estonia</span></strong>
+                                </label>
+                            </li>
+                        </ul>
                         <input type="text" class="form-control team-filter" placeholder="Filter Team">
                     </div>
                 </form>
@@ -84,19 +112,32 @@
         </div>
     </div>
 
-    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="../js/lib/dropdowns-enhancement.js"></script>
-    <script src="../js/lib/sorttable.js"></script>
-    <script src="../js/lib/moment.min.js"></script>
-    <script src="../js/initializer.js"></script>
-    <script src="../js/fixture-parser.js"></script>
-    <script src="../js/fixture-retriever.js"></script>
-    <script src="../js/fixture-date.js"></script>
-    <script src="../js/fixture-filter.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js">
+</script>
+    <script src="../js/lib/dropdowns-enhancement.js">
+</script>
+    <script src="../js/lib/sorttable.js">
+</script>
+    <script src="../js/lib/moment.min.js">
+</script>
+    <script src="../js/initializer.js">
+</script>
+    <script src="../js/fixture-parser.js">
+</script>
+    <script src="../js/fixture-retriever.js">
+</script>
+    <script src="../js/fixture-date.js">
+</script>
+    <script src="../js/fixture-filter.js">
+</script>
 
     <script>
-        $(document).ready(FixtureFinder.initializer.init());
-    </script>
+
+
+
+
+$(document).ready(FixtureFinder.initializer.init());
+</script>
 
 </body>
 
