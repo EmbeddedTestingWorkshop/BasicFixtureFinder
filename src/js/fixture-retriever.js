@@ -16,7 +16,7 @@ var FixtureRetriever = function() {
             var url = 'http://fixturefinder-ntd.herokuapp.com/fixtures/' + date + '?callback=?';
             $('.spinner').fadeIn(1000);
 
-            FixtureFinder.setDate(date);
+            FixtureFinder.setDateWithCurrentLanguage(date, FixtureFinder.currentLanguage);
             clearOldData();
 
             $.ajax({

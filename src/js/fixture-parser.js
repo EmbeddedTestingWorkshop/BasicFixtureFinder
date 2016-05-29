@@ -36,8 +36,9 @@ var FixtureParser = function(){
 
     return {
         parseFixtures: function(fixtures){
+            var localString = FixtureFinder.localizeString("fixtures");
             $('.fixtures .fixture').remove();
-            $('.fixtures .numberOfFixtures').text(fixtures.length +' fixtures');
+            $('.fixtures .numberOfFixtures').text(fixtures.length + ' ' + localString);
             fixtures = preprocessFixtures(fixtures);
             $.each(fixtures.length>=2?fixtures.slice(0, fixtures.length-1):fixtures, function(index, fixture ) {
                $('.fixtures .table').append(getFixtureAsHTMLElement(fixture, index));

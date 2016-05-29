@@ -22,6 +22,7 @@
     <script src="../src/js/fixture-parser.js"></script>
     <script src="../src/js/fixture-date.js"></script>
     <script src="../src/js/fixture-filter.js"></script>
+    <script src="../src/js/localize.js"></script>
 
     <!-- include spec files here... -->
     <script src="resources/testFixtureData.js"></script>
@@ -29,6 +30,7 @@
     <script src="spec/fixture-date-spec.js"></script>
     <script src="spec/team-filter-spec.js"></script>
     <script src="spec/country-filter-spec.js"></script>
+    <script src="spec/localize-spec.js"></script>
 
 </head>
 
@@ -36,8 +38,56 @@
     <div class="container main" style="display:none">
         <div class="row">
             <div class="jumbotron">
-                <h1>Fixture Finder</h1>
+                <h1>Fixture Findr</h1>
             </div>
+            <div class="localize">
+                <input type="radio" id="en_loc" name="localize" value="en" checked>
+                <label for="en_loc">
+                    <div class="flag flag-USA"></div>
+                </label>
+
+                <input type="radio" id="et_loc" name="localize" value="et">
+                <label for="et_loc">
+                    <div class="flag flag-Estonia"></div>
+                </label>
+            </div>
+            <nav class="navbar navbar-default">
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group filter">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="false">
+                            All Countries
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="competitions dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li>
+                                <input type="radio" id="All" name="competition" value="0" checked>
+                                <label for="All"><span class="flag flag-All"></span>
+                                    <strong><span class="all-txt">All Countries</span></strong>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" id="England" name="competition" value="1">
+                                <label for="England"><span class="flag flag-England"></span>
+                                    <strong><span class="en-txt">England</span></strong>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" id="Germany" name="competition" value="2">
+                                <label for="Germany"><span class="flag flag-Germany"></span>
+                                    <strong><span class="de-txt">Germany</span></strong>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" id="Estonia" name="competition" value="3">
+                                <label for="Estonia"><span class="flag flag-Estonia"></span>
+                                    <strong><span class="et-txt">Estonia</span></strong>
+                                </label>
+                            </li>
+                        </ul>
+                        <input type="text" class="form-control team-filter" placeholder="Filter Team">
+                    </div>
+                </form>
+            </nav>
 
             <section class="fixtures">
                 <div class="dateSelectNav">
@@ -51,6 +101,7 @@
                 <div class="info">
                     <span class="date"></span>
                     <span class="numberOfFixtures"></span>
+                    <img src="./resources/football_spinner.gif" class="spinner" />
                 </div>
 
                 <div class="table-responsive">
@@ -74,7 +125,7 @@
                         </tr>
                         <tr class="spinner">
                             <td colspan="5">
-                                <img src="./resources/spinner.gif" class="spinner" />
+                                <img src="./resources/football_spinner.gif" class="spinner" />
                             </td>
                         </tr>
                     </table>
@@ -83,6 +134,31 @@
             </section>
         </div>
     </div>
+
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js">
+    </script>
+    <script src="../js/lib/dropdowns-enhancement.js">
+    </script>
+    <script src="../js/lib/sorttable.js">
+    </script>
+    <script src="../js/lib/moment.min.js">
+    </script>
+    <script src="../js/initializer.js">
+    </script>
+    <script src="../js/fixture-parser.js">
+    </script>
+    <script src="../js/fixture-retriever.js">
+    </script>
+    <script src="../js/fixture-date.js">
+    </script>
+    <script src="../js/fixture-filter.js">
+    </script>
+    <script src="../js/localize.js">
+    </script>
+
+    <script>
+        $(document).ready(FixtureFinder.initializer.init());
+    </script>
 
 </body>
 
