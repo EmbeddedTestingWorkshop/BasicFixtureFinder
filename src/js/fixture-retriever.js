@@ -10,10 +10,9 @@ var FixtureRetriever = function() {
     FixtureFinder.FixtureRetriever = {
         filterCurrentWith: function(filter) {
             FixtureParser.parseFixtures(filter(fixtures));
-            //2015-04-01. TODO:Broken will fix soon. FixtureParser.populateDropdown(fixtures);
         },
-        getFixturesByDate: function(date, filter) {
-            var url = 'http://fixturefinder-ntd.herokuapp.com/fixtures/' + date + '?callback=?';
+        getFixturesByDate: function(date, filter){
+            var url = 'http://fixture-finder-us.herokuapp.com/fixture-finder/fixtures/'+date+'?callback=?';
             $('.spinner').fadeIn(1000);
 
             FixtureFinder.setDateWithCurrentLanguage(date, FixtureFinder.currentLanguage);
