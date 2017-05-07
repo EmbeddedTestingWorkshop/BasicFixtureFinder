@@ -13,7 +13,7 @@ var localizer = function (){
                     competition: "Konkurents",
                     kickOffDate: "Kick Off",
                     home: "Kodu",
-                    score: "skoor",
+                    score: "Skoor",
                     away: "Kodu",
                     team: "Meeskond",
                     fixtures: "inventar",
@@ -30,7 +30,7 @@ var localizer = function (){
             default:
                 return {
                     firstNavBtn: "Previous Week",
-                    secondNavBtn: "Previous day",
+                    secondNavBtn: "Previous Day",
                     thirdNavBtn: "Today",
                     fourthNavBtn: "Next Day",
                     fifthNavBtn: "Next Week",
