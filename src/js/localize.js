@@ -38,7 +38,7 @@ var localizer = function (){
                     kickOffDate: "Kick Off",
                     home: "Home",
                     score: "Score",
-                    away: "Home",
+                    away: "Away",
                     team: "Team",
                     fixtures: "fixtures",
                     all: "All",
