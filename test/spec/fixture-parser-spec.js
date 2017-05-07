@@ -30,7 +30,7 @@ describe("A FixtureParser", function() {
         });
 
         it("will display 1 fixture as the number of fixtures", function() {
-          expect($('.fixtures .numberOfFixtures').text()).toEqual("1 fixture");
+          expect($('.fixtures .numberOfFixtures').text()).toEqual("1 fixtures");
         });
 
         it("will have the expected fixture data in the table", function() {
