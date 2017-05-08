@@ -1,4 +1,3 @@
-// Admin password service server: PtmKbnhBzA_Yc8Wu
 var FixtureRetriever = function() {
 
     var clearOldData = function() {
