@@ -32,7 +32,7 @@ FixtureFinder.initializer = function() {
     };
 
     var daysToMillis = function(days) {
-        return days * 25 * 60 * 60 * 1000;
+        return days * 24 * 60 * 60 * 1000;
     };
 
     var addListenerFor = function(selector, listenerType, handler) {
