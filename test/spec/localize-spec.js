@@ -1,5 +1,11 @@
 describe("A Localizer", function() {
-
+  var testFixtures;
+  
+  beforeEach(function() {
+      testFixtures = testFixtureData;
+      FixtureParser.parseFixtures(testFixtures);
+  });
+      
   describe("#localizePage to Estonian", function() {
     beforeEach(function() {
       FixtureFinder.localizePage("et");
@@ -23,7 +29,7 @@ describe("A Localizer", function() {
     });
 
     it("will translate the word results to Estonian", function() {
-      expect($('.fixtures .numberOfFixtures').text()).toEqual("5 inventar");
+      expect($('.fixtures .info .numberOfFixtures').text()).toEqual("5 inventar");
     });
 
     it("will translate the all country names, inc 'All Countries' to Estonian", function() {
