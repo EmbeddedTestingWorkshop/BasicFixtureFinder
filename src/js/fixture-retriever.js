@@ -21,7 +21,7 @@ var FixtureRetriever = function() {
             $.ajax({
                 type: 'GET',
                 url: url,
-                async: false,
+                async: true,
                 jsonpCallback: 'jsonCallback',
                 contentType: "application/json",
                 dataType: 'jsonp',
