@@ -1,7 +1,29 @@
 var localizer = function (){
     var translator = function(lang){
         switch(lang){
-
+            case "de":
+            case "german":
+                return {
+                    firstNavBtn: "Vorige Woche",
+                    secondNavBtn: "Vorheriger Tag",
+                    thirdNavBtn: "Heute",
+                    fourthNavBtn: "Nächster Tag",
+                    fifthNavBtn: "Nächste Woche",
+                    competition: "Wettbewerb",
+                    kickOffDate: "Anstoß",
+                    home: "Heim",
+                    score: "Ergebnis",
+                    away: "Auswärts",
+                    team: "Mannschaft",
+                    fixtures: "Spiele",
+                    all: "Alle",
+                    countries: "Staaten",
+                    england: "England",
+                    germany: "Deutschland",
+                    estonia: "Estland",
+                    filter: "Filtern"
+            }
+                       
             case "et":
             case "estonian":
                 return {
@@ -47,7 +69,7 @@ var localizer = function (){
                     germany: "Germany",
                     estonia: "Estonia",
                     filter: "Filter"
-                }
+            }
         }
     };
 
