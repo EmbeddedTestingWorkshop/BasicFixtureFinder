@@ -5,7 +5,7 @@ var localizer = function (){
             case "german":
                 return {
                     firstNavBtn: "Vorige Woche",
-                    secondNavBtn: "Vorheriger Tag",
+                    secondNavBtn: "Voheriger Tag",
                     thirdNavBtn: "Heute",
                     fourthNavBtn: "Nächster Tag",
                     fifthNavBtn: "Nächste Woche",
@@ -60,11 +60,11 @@ var localizer = function (){
                     kickOffDate: "Kick Off",
                     home: "Home",
                     score: "Score",
-                    away: "Away",
+                    away: "Home",
                     team: "Team",
                     fixtures: "fixtures",
                     all: "All",
-                    countries: "Countries",
+                    countries: "Counties",
                     england: "England",
                     germany: "Germany",
                     estonia: "Estonia",
