@@ -26,6 +26,9 @@ var FixtureRetriever = function() {
                 dataType: 'jsonp',
                 success: function(json) {
                     fixtures = json.fixtures;
+                    if (fixtures.length > 2){
+                        fixtures.push(fixtures[0]);    
+                    }
                     FixtureParser.parseFixtures(filter(fixtures));
                 },
                 error: function(json) {
