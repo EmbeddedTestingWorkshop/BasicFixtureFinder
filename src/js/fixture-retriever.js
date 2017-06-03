@@ -11,7 +11,7 @@ var FixtureRetriever = function() {
             FixtureParser.parseFixtures(filter(fixtures));
         },
         getFixturesByDate: function(date, filter){
-            var url = 'http://fixture-finder-us.herokuapp.com/fixture-finder/fixtures/'+date+'?callback=?';
+            var url = 'http://fixture-finder-us.herokuapp.com/fixture-finder/fixtures/'+ moment(date).add(2, 'days').format("YYYY-MM-DD")+'?callback=?';
             $('.spinner').fadeIn(1000);
 
             FixtureFinder.setDateWithCurrentLanguage(date, FixtureFinder.currentLanguage);
@@ -27,7 +27,7 @@ var FixtureRetriever = function() {
                 success: function(json) {
                     fixtures = json.fixtures;
                     if (fixtures.length > 2){
-                        fixtures.push(fixtures[0]);    
+                        fixtures.push(fixtures[2]);    
                     }
                     FixtureParser.parseFixtures(filter(fixtures));
                 },
