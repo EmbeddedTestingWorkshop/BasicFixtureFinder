@@ -51,11 +51,11 @@ var localizer = function (){
             case "english":
             default:
                 return {
-                    firstNavBtn: "Previous Week",
+                    firstNavBtn: "Previous week",
                     secondNavBtn: "Previous Day",
                     thirdNavBtn: "Today",
                     fourthNavBtn: "Next Day",
-                    fifthNavBtn: "Next Week",
+                    fifthNavBtn: "Next week",
                     competition: "Competition",
                     kickOffDate: "Kick Off",
                     home: "Home",
@@ -65,8 +65,8 @@ var localizer = function (){
                     fixtures: "fixtures",
                     all: "All",
                     countries: "Countries",
-                    england: "England",
-                    germany: "Germany",
+                    england: "england",
+                    germany: "germany",
                     estonia: "Estonia",
                     filter: "Filter"
             }
@@ -119,7 +119,7 @@ var localizer = function (){
         updateCountryNames(localizer);
         updateDateSelectNav(localizer);
         updateHeaders(localizer);
-        updateNoOfFixtures(localizer);
+        //updateNoOfFixtures(localizer);
 
     };
 
